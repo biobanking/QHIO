@@ -1,0 +1,22 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix obo:  <http://purl.obolibrary.org/obo/> .
+
+obo:CL_0000255 # eukaryotic cell
+  rdfs:subClassOf obo:GO_0005623 . # GO:cell
+
+obo:CL_0000003 # native cell
+  rdfs:subClassOf obo:GO_0005623 . # GO:cell
+
+obo:FMA_62955 # Anatomical entity
+	rdfs:subClassOf obo:BFO_0000040 . # material entity
+
+obo:GO_0005575 # cellular component
+	rdfs:subClassOf obo:BFO_0000040 . # material entity
+
+obo:GO_0008150 # biological process
+	rdfs:subClassOf obo:BFO_0000015 . # process
+
+obo:DOID_4 # disease
+	rdfs:subClassOf obo:BFO_0000016 . # disposition
