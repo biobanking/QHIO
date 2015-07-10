@@ -2,8 +2,8 @@
 
 This document shows how QHIO and other Open Biomedical Ontologies can be used to make statements about a particular histopathology assay, its inputs, and its results. The example is fictional, but shows that the breadth and depth of detail that this approach enables, as we trace a path from the patient to a set of hot spot locations. This level of detail is not always necessary, but serves as a good demonstration and test case. Figure 1 summarizes the statements.
 
-[![Figure 1](example.png)](example.pdf)
-Figure 1: Each box represents a particular, with its name below and the name of the universal that it instantiates above. Solid lines indicate the flow of input to output. Dashed lines indicate parthood. Dotted lines with labels are used for all other relations.
+[![Figure 1](example.png)](https://github.com/ontodev/QHIO/raw/master/example.pdf)
+Figure 1 ([PDF](https://github.com/ontodev/QHIO/raw/master/example.pdf)): Each box represents a particular, with its name below and the name of the universal that it instantiates above. Solid lines indicate the flow of input to output. Dashed lines indicate parthood. Dotted lines with labels are used for all other relations.
 
 
 ## Using this Document
