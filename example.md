@@ -142,19 +142,28 @@ NOTE: You select part of the slide to scan from the glass slide, then maybe sele
     scanning 1
       type: image creation
       device: scanner 1
-      setting: resolution setting 1
-      setting: image compression setting 1
+      setting: spatial resolution setting 1
+      setting: compression ratio setting 1
+	  setting: compression method setting 1
+	  setting: magnification setting 1
       input: slide 1
       output: region of interest image 1
 
-    resolution setting 1
+    spatial resolution setting 1
       type: scalar value specification
-      value: 40
+      value: 0.25
 
-    image compression setting 1
+	magnification setting 1
+	  type: scalar value specification
+	  value: 40
+
+    compression ratio setting 1
       type: scalar value specification
-      value: 0.7
+      value: 1:25
 
+	compression method setting 1
+	  type: data transformation
+	  
     JPEG image format
       type: data format specification
 
@@ -169,12 +178,30 @@ Given an image, we want to be able to retrieve important information about it. W
 - scanned by: ?image output of ?scanning has device ?scanner
 - scanned at: ?image output of ?scanning has setting ?resolution has value ?value
 
+Scott Notes:
+- Changed "resolution setting 1" to "spatial resolution setting 1" -- this should be in microns per pixel (mpp), which is slightly more precise than 40x magnification. 
+- Added "magnification setting 1" to compensate for the previous change. 
+- Specified compression as a "ratio" of 1:whatever (may not be a "scalar value specification")
+- Should we have an "image format" line for every type of image format?
+- Added "compression method setting" to identify the algorithm used in compressing data (specific algorithms should indicate lossy / lossless, etc.)
+
+## Image Annotation
+
+In the fourth stage the digital slide image is annotated by a human expert. This stage allows us to manually assign lines, contours, points, and text to the image as a way of defining ground truth or information about the image content. Text-based labels could be located on the image or merely associated with it, and are separate from the labels of the patient / tissue from which the sample was taken.
+
+The output of this stage would be a set of image coordinates corresponding to the line / point / contour annotations, and the text labels (with or without associated coordinates, depending on whether the text is associated with a spatial location in the image). 
+
+TODO: Insert ontology terms to define these annotations
 
 ## Algorithm Execution
 
-In the fourth stage we transform the image data using software that implements several algorithms. We use the general OBI term [data transformation](http://purl.obolibrary.org/obo/OBI_0200000), describing the main process and several process parts, with the following structure:
+In the fifth stage we transform the image data using software that implements several algorithms. We use the general OBI term [data transformation](http://purl.obolibrary.org/obo/OBI_0200000), describing the main process and several process parts, with the following structure:
 
 - algorithm execution
+	- pre processing
+		- normalization
+		- filtering
+		- reconstruction (e.g. deconvolution)
     - segmentation
         - visually meaningful segmentation
             - kmeans clustering
