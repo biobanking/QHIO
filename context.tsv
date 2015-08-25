@@ -1,0 +1,35 @@
+rdf	<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+rdfs	<http://www.w3.org/2000/01/rdf-schema#>
+owl	<http://www.w3.org/2002/07/owl#>
+xsd	<http://www.w3.org/2001/XMLSchema#>
+obo	<http://purl.obolibrary.org/obo/>
+BFO	<http://purl.obolibrary.org/obo/BFO_>
+CHEBI	<http://purl.obolibrary.org/obo/CHEBI_>
+IAO	<http://purl.obolibrary.org/obo/IAO_>
+NCBITaxon	<http://purl.obolibrary.org/obo/NCBITaxon_>
+OBI	<http://purl.obolibrary.org/obo/OBI_>
+RO	<http://purl.obolibrary.org/obo/RO_>
+QHIO	<https://github.com/ontodev/QHIO/raw/master/qhio-prototype.owl#>
+	<https://github.com/ontodev/QHIO/raw/master/example.ttl>
+type	rdf:type
+part of	BFO:0000050
+has part	BFO:0000051
+preceded by	BFO:0000062
+input	OBI:0000293
+output	OBI:0000299
+value	OBI:0001937	xsd:number
+unit	IAO:0000039
+is about	IAO:0000136
+executes	QHIO:executes
+device	QHIO:has-device
+reagent	QHIO:has-reagent
+realizes	BFO:0000055
+concretizes	RO:0000059
+setting	QHIO:has-setting
+format	QHIO:has-format
+comment	rdfs:comment	rdf:PlainLiteral
+definition	IAO:0000115	rdf:PlainLiteral
+domain	rdfs:domain
+range	rdfs:range
+parent property	rdfs:subPropertyOf
+label	rdfs:label	rdf:PlainLiteral

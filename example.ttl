@@ -1,0 +1,362 @@
+@base <https://github.com/ontodev/QHIO/raw/master/example.ttl> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix BFO: <http://purl.obolibrary.org/obo/BFO_> .
+@prefix CHEBI: <http://purl.obolibrary.org/obo/CHEBI_> .
+@prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix NCBITaxon: <http://purl.obolibrary.org/obo/NCBITaxon_> .
+@prefix OBI: <http://purl.obolibrary.org/obo/OBI_> .
+@prefix RO: <http://purl.obolibrary.org/obo/RO_> .
+@prefix QHIO: <qhio-prototype.owl#> .
+@prefix : <> .
+
+owl:Ontology
+    owl:imports <qhio-prototype.owl> .
+
+:Gaussian-smoothing-sigma-1
+    obo:OBI_0001937 "1"^^xsd:number ;
+    a :scalar-value-specification ;
+    rdfs:label "Gaussian smoothing sigma 1" .
+
+:JPEG-image-format
+    a :data-format-specification ;
+    rdfs:label "JPEG image format" .
+
+:algorithm-execution-1
+    obo:BFO_0000051 :density-map-creation-1, :local-maxima-detection-1, :post-processing-1, :segmentation-1 ;
+    obo:OBI_0000293 :region-of-interest-image-1 ;
+    obo:OBI_0000299 :hot-spot-location-data-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:comment "The particular process in which the software that implements the algorithm is executed. This occurs at a particular time and place." ;
+    rdfs:label "algorithm execution 1" ;
+    QHIO:executes :software-1 .
+
+:area-filter-threshold-setting-1
+    obo:OBI_0001937 "530"^^xsd:number ;
+    a :scalar-value-specification ;
+    rdfs:label "area filter threshold setting 1" .
+
+:area-filtered-data-1
+    a :data-set ;
+    rdfs:label "area filtered data 1" .
+
+:area-filtering-1
+    obo:OBI_0000293 :local-maxima-data-1, :segmented-image-1 ;
+    obo:OBI_0000299 :area-filtered-data-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:label "area filtering 1" ;
+    QHIO:has-setting :area-filter-threshold-setting-1 .
+
+:automatic-staining-machine-1
+    a obo:OBI_0001063 ;
+    rdfs:label "automatic staining machine 1" .
+
+:cell-fixation-1
+    obo:OBI_0000293 :tissue-specimen-1 ;
+    obo:OBI_0000299 :tissue-specimen-1 ;
+    a obo:OBI_0600021 ;
+    rdfs:label "cell fixation 1" .
+
+:cluster-data-1
+    a :data-set ;
+    rdfs:label "cluster data 1" .
+
+:compression-method-setting-1
+    a obo:OBI_0200000 ;
+    rdfs:label "compression method setting 1" .
+
+:compression-ratio-setting-1
+    obo:OBI_0001937 "1:25"^^xsd:number ;
+    a :value-specification ;
+    rdfs:label "compression ratio setting 1" .
+
+:density-map-1
+    a :data-set ;
+    rdfs:label "density map 1" .
+
+:density-map-creation-1
+    obo:BFO_0000062 :segmentation-1 ;
+    obo:OBI_0000293 :smoothed-segmented-image-1 ;
+    obo:OBI_0000299 :density-map-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:label "density map creation 1" .
+
+:entropy-based-histogram-thresholding-1
+    obo:BFO_0000062 :projection-into-Lab-color-space-1 ;
+    obo:OBI_0000293 :projected-image-1 ;
+    obo:OBI_0000299 :segmented-image-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:label "entropy based histogram thresholding 1" .
+
+:geodesic-distance-transform-1
+    obo:OBI_0000293 :threshold-data-1 ;
+    obo:OBI_0000299 :hot-spot-location-data-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:label "geodesic distance transform 1" .
+
+:hot-spot-location-data-1
+    obo:IAO_0000136 :tissue-specimen-1 ;
+    a :hot-spot ;
+    rdfs:label "hot spot location data 1" ;
+    :annotation-of :region-of-interest-image-1 .
+
+:ischemia-1
+    obo:BFO_0000062 :cell-fixation-1 ;
+    obo:OBI_0000293 :tissue-specimen-1 ;
+    obo:OBI_0000299 :tissue-specimen-1 ;
+    a :ischemia ;
+    rdfs:label "ischemia 1" .
+
+:kmeans-clustering-1
+    obo:OBI_0000293 :region-of-interest-image-1 ;
+    obo:OBI_0000299 :cluster-data-1 ;
+    a :clustering ;
+    rdfs:label "kmeans clustering 1" .
+
+:local-maxima-data-1
+    a :data-set ;
+    rdfs:label "local maxima data 1" .
+
+:local-maxima-detection-1
+    obo:BFO_0000062 :density-map-creation-1 ;
+    obo:OBI_0000293 :density-map-1 ;
+    obo:OBI_0000299 :local-maxima-data-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:label "local maxima detection 1" .
+
+:magnification-setting-1
+    obo:OBI_0001937 "40"^^xsd:number ;
+    a :value-specification ;
+    rdfs:label "magnification setting 1" .
+
+:microtome-1
+    a :microtome ;
+    rdfs:label "microtome 1" .
+
+:mounting-1
+    obo:BFO_0000062 :tissue-embedding-1 ;
+    obo:OBI_0000293 :section-1 ;
+    obo:OBI_0000299 :slide-1 ;
+    a :histological-mounting ;
+    rdfs:label "mounting 1" .
+
+:patient-1
+    a obo:NCBITaxon_9606 ;
+    rdfs:label "patient 1" .
+
+:patient-1-left-breast
+    obo:BFO_0000050 :patient-1 ;
+    a :Left-female-breast ;
+    rdfs:label "patient 1 left breast" .
+
+:post-processing-1
+    obo:BFO_0000051 :area-filtering-1, :geodesic-distance-transform-1, :threshold-rules-1 ;
+    obo:BFO_0000062 :local-maxima-detection-1 ;
+    obo:OBI_0000293 :local-maxima-data-1, :segmented-image-1 ;
+    obo:OBI_0000299 :hot-spot-location-data-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:label "post processing 1" .
+
+:projected-image-1
+    a obo:IAO_0000101 ;
+    rdfs:label "projected image 1" .
+
+:projection-into-Lab-color-space-1
+    obo:BFO_0000062 :kmeans-clustering-1 ;
+    obo:OBI_0000293 :cluster-data-1 ;
+    obo:OBI_0000299 :projected-image-1 ;
+    a :color-space-transformation ;
+    rdfs:label "projection into Lab color space 1" .
+
+:region-of-interest-image-1
+    a obo:IAO_0000101 ;
+    rdfs:comment "A subset of the original whole slide image, maybe 1000x2000 pixels." ;
+    rdfs:label "region of interest image 1" ;
+    QHIO:has-format :JPEG-image-format .
+
+:scanner-1
+    a :histological-slide-scanner ;
+    rdfs:comment "Aperio brand slide scanner." ;
+    rdfs:label "scanner 1" .
+
+:scanning-1
+    obo:OBI_0000293 :slide-1 ;
+    obo:OBI_0000299 :region-of-interest-image-1 ;
+    a :histological-slide-scanning ;
+    rdfs:label "scanning 1" ;
+    QHIO:has-device :scanner-1 ;
+    QHIO:has-setting :compression-method-setting-1, :compression-ratio-setting-1, :magnification-setting-1, :spatial-resolution-setting-1 .
+
+:section-1
+    a :histological-section ;
+    rdfs:label "section 1" .
+
+:sectioning-1
+    obo:BFO_0000062 :tissue-embedding-1 ;
+    obo:OBI_0000293 :tissue-specimen-1 ;
+    obo:OBI_0000299 :section-1 ;
+    a :histological-sectioning ;
+    rdfs:label "sectioning 1" ;
+    QHIO:has-device :microtome-1 .
+
+:segmentation-1
+    obo:BFO_0000051 :smoothing-1, :visually-meaningful-segmentation-1 ;
+    obo:OBI_0000293 :region-of-interest-image-1 ;
+    obo:OBI_0000299 :smoothed-segmented-image-1 ;
+    a :image-segmentation ;
+    rdfs:comment "The particular process in which the Visually Meaningful Segmentation algorithm was executed on a particular image." ;
+    rdfs:label "segmentation 1" .
+
+:segmented-image-1
+    a obo:IAO_0000101 ;
+    rdfs:label "segmented image 1" .
+
+:slide-1
+    a :histological-slide ;
+    rdfs:comment "The particular slide that was scanned to create the input image." ;
+    rdfs:label "slide 1" .
+
+:smoothed-segmented-image-1
+    a obo:IAO_0000101 ;
+    rdfs:label "smoothed segmented image 1" .
+
+:smoothing-1
+    obo:BFO_0000062 :visually-meaningful-segmentation-1 ;
+    obo:OBI_0000293 :segmented-image-1 ;
+    obo:OBI_0000299 :smoothed-segmented-image-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:label "smoothing 1" ;
+    QHIO:has-setting :Gaussian-smoothing-sigma-1 .
+
+:software-1
+    a obo:IAO_0000010 ;
+    rdfs:label "software 1" .
+
+:spatial-resolution-setting-1
+    obo:IAO_0000039 :microns-per-pixel ;
+    obo:OBI_0001937 "0.25"^^xsd:number ;
+    a :scalar-value-specification ;
+    rdfs:label "spatial resolution setting 1" .
+
+:specimen-collection-1
+    obo:OBI_0000293 :patient-1-left-breast ;
+    obo:OBI_0000299 :tissue-specimen-1 ;
+    a obo:OBI_0600005 ;
+    rdfs:label "specimen collection 1" ;
+    QHIO:executes :specimen-collection-protocol-1 .
+
+:specimen-collection-protocol-1
+    a obo:OBI_0000272 ;
+    rdfs:label "specimen collection protocol 1" .
+
+:specimen-preparation-1
+    obo:BFO_0000051 :cell-fixation-1, :ischemia-1, :mounting-1, :staining-1, :tissue-dehydration-1, :tissue-embedding-1 ;
+    obo:OBI_0000293 :tissue-specimen-1 ;
+    obo:OBI_0000299 :slide-1 ;
+    a obo:OBI_0000341 ;
+    rdfs:label "specimen preparation 1" ;
+    QHIO:executes :specimen-preparation-protocol-1 .
+
+:specimen-preparation-protocol-1
+    a obo:OBI_0000272 ;
+    rdfs:label "specimen preparation protocol 1" .
+
+:stain-1
+    a :Ki67-stain ;
+    rdfs:label "stain 1" .
+
+:staining-1
+    obo:BFO_0000062 :mounting-1 ;
+    obo:OBI_0000293 :slide-1 ;
+    obo:OBI_0000299 :slide-1 ;
+    a obo:OBI_0302887 ;
+    rdfs:label "staining 1" ;
+    QHIO:has-device :automatic-staining-machine-1 ;
+    QHIO:has-reagent :stain-1 .
+
+:threshold-data-1
+    a :data-set ;
+    rdfs:label "threshold data 1" .
+
+:threshold-rules-1
+    obo:OBI_0000293 :area-filtered-data-1 ;
+    obo:OBI_0000299 :threshold-data-1 ;
+    a obo:OBI_0200000 ;
+    rdfs:label "threshold rules 1" ;
+    QHIO:has-setting :threshold-setting-1 .
+
+:threshold-setting-1
+    obo:OBI_0001937 "0.15"^^xsd:number ;
+    a :scalar-value-specification ;
+    rdfs:label "threshold setting 1" .
+
+:tissue-dehydration-1
+    obo:BFO_0000062 :ischemia-1 ;
+    obo:OBI_0000293 :tissue-specimen-1 ;
+    obo:OBI_0000299 :tissue-specimen-1 ;
+    a :tissue-dehydration ;
+    rdfs:label "tissue dehydration 1" .
+
+:tissue-embedding-1
+    obo:BFO_0000062 :tissue-dehydration-1 ;
+    obo:OBI_0000293 :tissue-specimen-1 ;
+    obo:OBI_0000299 :tissue-specimen-1 ;
+    a :tissue-embedding ;
+    rdfs:label "tissue embedding 1" ;
+    QHIO:has-device :tissue-embedding-station-1 .
+
+:tissue-embedding-station-1
+    a obo:OBI_0001107 ;
+    rdfs:label "tissue embedding station 1" .
+
+:tissue-specimen-1
+    a obo:OBI_0001479 ;
+    rdfs:label "tissue specimen 1" .
+
+:visually-meaningful-segmentation-1
+    obo:BFO_0000051 :entropy-based-histogram-thresholding-1, :kmeans-clustering-1, :projection-into-Lab-color-space-1 ;
+    obo:OBI_0000293 :region-of-interest-image-1 ;
+    obo:OBI_0000299 :segmented-image-1 ;
+    a :image-segmention ;
+    rdfs:label "visually meaningful segmentation 1" .
+
+QHIO:executes
+    obo:IAO_0000115 "A relation between a planned process and a plan that it follows." ;
+    a owl:ObjectProperty ;
+    rdfs:domain obo:OBI_0000011 ;
+    rdfs:label "executes" ;
+    rdfs:range :plan .
+
+QHIO:has-device
+    obo:IAO_0000115 "A relation between an assay and a device used in the assay." ;
+    a owl:ObjectProperty ;
+    rdfs:domain obo:OBI_0000070 ;
+    rdfs:label "device", "has device" ;
+    rdfs:range obo:OBI_0000968 ;
+    rdfs:subPropertyOf obo:OBI_0000293 .
+
+QHIO:has-format
+    obo:IAO_0000115 "A relation between an information content entity and a data format specification that specifies its format." ;
+    a owl:ObjectProperty ;
+    rdfs:domain obo:IAO_0000030 ;
+    rdfs:label "format", "has format" ;
+    rdfs:range :data-format-specification .
+
+QHIO:has-reagent
+    obo:IAO_0000115 "A relation between an assay and a reagent used in the assay." ;
+    a owl:ObjectProperty ;
+    rdfs:domain obo:OBI_0000070 ;
+    rdfs:label "has reagent", "reagent" ;
+    rdfs:range obo:OBI_0001879 ;
+    rdfs:subPropertyOf obo:OBI_0000293 .
+
+QHIO:has-setting
+    obo:IAO_0000115 "A relation between a planned process and a specified setting value." ;
+    a owl:ObjectProperty ;
+    rdfs:domain obo:OBI_0000011 ;
+    rdfs:label "has setting", "setting" ;
+    rdfs:range :value-specification .
+
