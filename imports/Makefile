@@ -3,10 +3,16 @@ ontologies = obi fma go cl doid ero obib
 imports = $(foreach o,$(ontologies),qhio-$(o).owl)
 inputs = $(foreach i,$(imports),--input $(i))
 
-qhio-obo.owl: $(imports) splice.ttl
+qhio-obo.owl: $(imports) overrides.ttl
 	robot merge $(inputs) \
-	--input splice.ttl \
+	--input overrides.ttl \
 	--output qhio-obo.owl
+	sed -i '' '/owl#Thing/d' $@
+
+obo-terms.txt: ../overview.md ../example.md
+	@cd .. \
+	&& pandoc overview.md example.md --filter=src/extract-terms.py \
+	> /dev/null
 
 qhio-obi.owl: obo-terms.txt $(LIB)/obi.owl
 	robot extract --input $(LIB)/obi.owl \
@@ -24,7 +30,7 @@ qhio-go.owl: obo-terms.txt $(LIB)/go.owl
 	--lower-terms obo-terms.txt \
 	--output qhio-go.owl
 
-imports/qhio-cl.owl: $(LIB)/cl.owl
+qhio-cl.owl: $(LIB)/cl.owl
 	robot extract --input $(LIB)/cl.owl \
 	--upper-term "CL:0000255" \
 	--upper-term "CL:0000003" \
@@ -52,6 +58,3 @@ qhio-obib.owl: $(LIB)/obib.owl
 	--upper-term "OBI:0000070" \
 	--lower-term "OMIABIS:0001041" \
 	--output qhio-obib.owl
-
-obo-terms.txt: ../overview.md
-	@cd .. && pandoc overview.md --filter=src/extract-terms.py > /dev/null
