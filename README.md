@@ -4,5 +4,5 @@ This repository contains work-in-progress on an ontology for quantitative histop
 
 - [overview](overview.md)
 - [example](example.md)
-- [draft OWL file](qhio-prototype.owl)
+- [draft OWL file](https://github.com/ontodev/QHIO/raw/master/qhio-prototype.owl)
 - [draft OWL file](example.ttl)
