@@ -8,7 +8,7 @@ This document presents an overview of existing and required terms for processes 
 This document is written in essay form, with links to relevant existing terms and required new terms in <b>bold</b>.
 
 - [spreadsheet](https://docs.google.com/spreadsheets/d/1mzK0qvPvfVbFiTIKTrZoHH23h92V1gA265jwVDhGktg/edit?usp=sharing) with new terms (for editing) and imported terms. (Click "Share" then "Request access" to request editing privileges.)
-- [draft OWL file](qhio-prototype.owl)
+- [draft OWL file](https://github.com/ontodev/QHIO/raw/master/qhio-prototype.owl)
 
 To read OWL files you need to install [Protégé Desktop](http://protege.stanford.edu/products.php#desktop-protege).
 
